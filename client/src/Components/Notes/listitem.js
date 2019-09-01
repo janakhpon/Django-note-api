@@ -4,7 +4,7 @@ import React, {
 import {  Container, Header, List } from 'semantic-ui-react';
 
 
-export default class EditForm extends Component {
+export default class Item extends Component {
   render(){
     return(
       <Container text>
