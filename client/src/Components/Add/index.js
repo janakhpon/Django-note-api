@@ -1,67 +1,61 @@
-import React, {
-  Component
-} from 'react';
-import {  Container, Header, List } from 'semantic-ui-react';
-
+import React, {Component} from 'react';
+import {
+  Container,
+  Header,
+  Button,
+  Modal,
+  Form,
+  TextArea
+} from 'semantic-ui-react';
 
 export default class AddForm extends Component {
-  render(){
-    return(
-      <Container text>
-          <Header as='h2'>Header</Header>
-            <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-              ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
-              magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-              ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-              quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-              arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-              Nullam dictum felis eu pede link mollis pretium. Integer tincidunt. Cras
-              dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
-              Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
-              Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus
-              viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.
-              Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-              ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
-              magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-              ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-              quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-              arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-              Nullam dictum felis eu pede link mollis pretium. Integer tincidunt. Cras
-              dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
-              Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
-              Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus
-              viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.
-              Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.
-            </p>
-              <List divided relaxed>
-                <List.Item>
-                  <List.Icon name='github' size='large' verticalAlign='middle' />
-                  <List.Content>
-                    <List.Header as='a'>Semantic-Org/Semantic-UI</List.Header>
-                    <List.Description as='a'>Updated 10 mins ago</List.Description>
-                  </List.Content>
-                </List.Item>
-                <List.Item>
-                  <List.Icon name='github' size='large' verticalAlign='middle' />
-                  <List.Content>
-                    <List.Header as='a'>Semantic-Org/Semantic-UI-Docs</List.Header>
-                    <List.Description as='a'>Updated 22 mins ago</List.Description>
-                  </List.Content>
-                </List.Item>
-                <List.Item>
-                  <List.Icon name='github' size='large' verticalAlign='middle' />
-                  <List.Content>
-                    <List.Header as='a'>Semantic-Org/Semantic-UI-Meteor</List.Header>
-                    <List.Description as='a'>Updated 34 mins ago</List.Description>
-                  </List.Content>
-                </List.Item>
-              </List>
-        </Container>
+  state = {
+    open: false
+  }
 
-    );
+  closeConfigShow = (closeOnEscape, closeOnDimmerClick) => () => {
+    this.setState({closeOnEscape, closeOnDimmerClick, open: true})
+  }
+
+  close = () => this.setState({open: false})
+
+  render() {
+    const {open, closeOnEscape, closeOnDimmerClick} = this.state
+
+    return (<Container text="text">
+      <Header as='h2'>
+        <hr></hr>
+      </Header>
+      <div>
+        <Button onClick={this.closeConfigShow(true, false)}>
+          No Close on Dimmer Click
+        </Button>
+
+        <Modal open={open} closeOnEscape={closeOnEscape} closeOnDimmerClick={closeOnDimmerClick} onClose={this.close}>
+          <Modal.Header>Fill Your Credetials
+          </Modal.Header>
+          <Modal.Content>
+            <Form>
+              <Form.Field>
+                <label>User Input</label>
+                <input/>
+              </Form.Field>
+              <Form.Field>
+                <TextArea placeholder='Tell us more' style={{
+                    minHeight: 100
+                  }}/>
+              </Form.Field>
+
+            </Form>
+          </Modal.Content>
+          <Modal.Actions>
+            <Button onClick={this.close} negative="negative">
+              No
+            </Button>
+            <Button onClick={this.close} positive="positive" labelPosition='right' icon='checkmark' content='Yes'/>
+          </Modal.Actions>
+        </Modal>
+      </div>
+    </Container>);
   }
 }
