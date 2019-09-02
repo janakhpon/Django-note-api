@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Container, Button, Checkbox, Table} from 'semantic-ui-react';
+import {Container, Table} from 'semantic-ui-react';
+import ListItem from './listitem';
 
 export default class ListForm extends Component {
   render() {
@@ -17,22 +18,9 @@ export default class ListForm extends Component {
             <Table.HeaderCell>COMPLETED</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
-        
+
         <Table.Body>
-          <Table.Row>
-            <Table.Cell>1</Table.Cell>
-            <Table.Cell>meet
-            </Table.Cell>
-            <Table.Cell>watch the rambo last blood
-            </Table.Cell>
-            <Table.Cell>September 14, 2013</Table.Cell>
-            <Table.Cell>
-              <Button primary="primary" size='small'>VIEW</Button>
-            </Table.Cell>
-            <Table.Cell collapsing="collapsing">
-              <Checkbox slider="slider"/>
-            </Table.Cell>
-          </Table.Row>
+          <ListItem/>
         </Table.Body>
       </Table>
     </Container>);
