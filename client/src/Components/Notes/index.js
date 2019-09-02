@@ -1,83 +1,40 @@
-import React, {
-  Component
-} from 'react';
-import {  Container, Button, Checkbox, Icon, Table  } from 'semantic-ui-react';
-
+import React, {Component} from 'react';
+import {Container, Button, Checkbox, Table} from 'semantic-ui-react';
 
 export default class ListForm extends Component {
-  render(){
-    return(
-      <Container text>
-        <hr/>
-        <hr/>
-            <Table compact celled definition>
-                 <Table.Header>
-                   <Table.Row>
-                     <Table.HeaderCell />
-                     <Table.HeaderCell>Name</Table.HeaderCell>
-                     <Table.HeaderCell>Registration Date</Table.HeaderCell>
-                     <Table.HeaderCell>E-mail address</Table.HeaderCell>
-                     <Table.HeaderCell>Premium Plan</Table.HeaderCell>
-                   </Table.Row>
-                 </Table.Header>
-
-                 <Table.Body>
-                   <Table.Row>
-                     <Table.Cell collapsing>
-                       <Checkbox slider />
-                     </Table.Cell>
-                     <Table.Cell>John Lilki</Table.Cell>
-                     <Table.Cell>September 14, 2013</Table.Cell>
-                     <Table.Cell>jhlilk22@yahoo.com</Table.Cell>
-                     <Table.Cell>No</Table.Cell>
-                   </Table.Row>
-                   <Table.Row>
-                     <Table.Cell collapsing>
-                       <Checkbox slider />
-                     </Table.Cell>
-                     <Table.Cell>Jamie Harington</Table.Cell>
-                     <Table.Cell>January 11, 2014</Table.Cell>
-                     <Table.Cell>jamieharingonton@yahoo.com</Table.Cell>
-                     <Table.Cell>Yes</Table.Cell>
-                   </Table.Row>
-                   <Table.Row>
-                     <Table.Cell collapsing>
-                       <Checkbox slider />
-                     </Table.Cell>
-                     <Table.Cell>Jill Lewis</Table.Cell>
-                     <Table.Cell>May 11, 2014</Table.Cell>
-                     <Table.Cell>jilsewris22@yahoo.com</Table.Cell>
-                     <Table.Cell>
-
-                       <Button primary size='small'>Approve</Button>
-
-                     </Table.Cell>
-                   </Table.Row>
-                 </Table.Body>
-
-                 <Table.Footer fullWidth>
-                   <Table.Row>
-                     <Table.HeaderCell />
-                     <Table.HeaderCell colSpan='4'>
-                       <Button
-                         floated='right'
-                         icon
-                         labelPosition='left'
-                         primary
-                         size='small'
-                       >
-                         <Icon name='user' /> Add User
-                       </Button>
-                       <Button size='small'>Approve</Button>
-                       <Button disabled size='small'>
-                         Approve All
-                       </Button>
-                     </Table.HeaderCell>
-                   </Table.Row>
-                 </Table.Footer>
-                </Table>
-        </Container>
-
-    );
+  render() {
+    return (<Container text="text">
+      <hr/>
+      <hr/>
+      <Table compact="compact" celled="celled" definition="definition">
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell>ID</Table.HeaderCell>
+            <Table.HeaderCell>TITLE</Table.HeaderCell>
+            <Table.HeaderCell>CONTENT</Table.HeaderCell>
+            <Table.HeaderCell>DATE</Table.HeaderCell>
+            <Table.HeaderCell>OPTION</Table.HeaderCell>
+            <Table.HeaderCell>COMPLETED</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+        
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>1</Table.Cell>
+            <Table.Cell>meet
+            </Table.Cell>
+            <Table.Cell>watch the rambo last blood
+            </Table.Cell>
+            <Table.Cell>September 14, 2013</Table.Cell>
+            <Table.Cell>
+              <Button primary="primary" size='small'>VIEW</Button>
+            </Table.Cell>
+            <Table.Cell collapsing="collapsing">
+              <Checkbox slider="slider"/>
+            </Table.Cell>
+          </Table.Row>
+        </Table.Body>
+      </Table>
+    </Container>);
   }
 }
