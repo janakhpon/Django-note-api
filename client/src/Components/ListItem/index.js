@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Modal, Button, Checkbox, Table, Form,
+  Modal, Button, Icon, Checkbox, Table, Form,
   TextArea
 } from 'semantic-ui-react';
 import Moment from 'react-moment';
@@ -45,10 +45,13 @@ const ListItem = ({ title, content, id, time }) => {
       </Table.Cell>
       <Table.Cell>
 
-        <Moment fromNow ago>{time}</Moment>
+        <Moment fromNow ago>{time}</Moment> ago
       </Table.Cell>
       <Table.Cell>
-        <Button primary onClick={() => setOpen(true)}>Small</Button>
+        <Button icon labelPosition='left' primary onClick={() => setOpen(true)}>
+          <Icon name='pencil alternate' />
+          EDIT
+    </Button>
       </Table.Cell>
       <Table.Cell collapsing className="changeme">
         <Checkbox slider />

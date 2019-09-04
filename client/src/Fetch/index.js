@@ -7,3 +7,21 @@ export const getNotes = async () => {
     return data
   });
 }
+
+
+export const addNote = (note) => {
+  fetch(url, {
+    method: 'POST',
+    headers:{
+      Accept:'application/json',
+      'Content-Type':'application/json'
+    },
+    body:JSON.stringify(note)
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log(data)
+  });
+
+  return note;
+}
