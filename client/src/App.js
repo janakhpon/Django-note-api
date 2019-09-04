@@ -60,7 +60,7 @@ export default class App extends Component {
       <React.Fragment>
         <AddForm/>
 
-        <ListForm/>
+        <ListForm notes={this.state.notes}/>
       </React.Fragment>
     );
   }
