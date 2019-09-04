@@ -1,12 +1,21 @@
-import React, {Component} from 'react';
-import {Container, Table} from 'semantic-ui-react';
-import ListItem from './listitem';
+import React from 'react';
+import { Container, Table } from 'semantic-ui-react';
+import ListItem from '../ListItem';
 
-export default class ListForm extends Component {
-  render() {
-    return (<Container text>
-      <hr/>
-      <hr/>
+
+const ListForm = ({notes}) => {
+
+  let notes_list = notes.map((note, key) => {
+    return (
+      <ListItem title={note.title} content={note.content} id={note.id} key={key} time={note.updated_at}/>
+    )
+  })
+
+  return (
+
+    <Container text>
+      <hr />
+      <hr />
       <Table compact celled definition>
         <Table.Header>
           <Table.Row>
@@ -20,9 +29,14 @@ export default class ListForm extends Component {
         </Table.Header>
 
         <Table.Body>
-          <ListItem/>
+          {notes_list}
+         
         </Table.Body>
       </Table>
-    </Container>);
-  }
-}
+    </Container>
+
+  );
+};
+
+
+export default ListForm;
