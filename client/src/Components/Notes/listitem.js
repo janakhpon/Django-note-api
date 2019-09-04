@@ -12,10 +12,10 @@ export default class ListItem extends Component {
             </Table.Cell>
             <Table.Cell>September 14, 2013</Table.Cell>
             <Table.Cell>
-              <Button primary="primary" size='small'>VIEW</Button>
+              <Button primary size='small'>VIEW</Button>
             </Table.Cell>
-            <Table.Cell collapsing="collapsing">
-              <Checkbox slider="slider"/>
+            <Table.Cell collapsing>
+              <Checkbox slider/>
             </Table.Cell>
           </Table.Row>
         );

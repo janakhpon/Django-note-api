@@ -22,7 +22,7 @@ export default class AddForm extends Component {
   render() {
     const {open, closeOnEscape, closeOnDimmerClick} = this.state
 
-    return (<Container text="text">
+    return (<Container text>
       <Header as='h2'>
         <hr></hr>
       </Header>
@@ -49,10 +49,10 @@ export default class AddForm extends Component {
             </Form>
           </Modal.Content>
           <Modal.Actions>
-            <Button onClick={this.close} negative="negative">
+            <Button onClick={this.close} negative>
               No
             </Button>
-            <Button onClick={this.close} positive="positive" labelPosition='right' icon='checkmark' content='Yes'/>
+            <Button onClick={this.close} positive labelPosition='right' icon='checkmark' content='Yes'/>
           </Modal.Actions>
         </Modal>
       </div>

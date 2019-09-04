@@ -4,10 +4,10 @@ import ListItem from './listitem';
 
 export default class ListForm extends Component {
   render() {
-    return (<Container text="text">
+    return (<Container text>
       <hr/>
       <hr/>
-      <Table compact="compact" celled="celled" definition="definition">
+      <Table compact celled definition>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>ID</Table.HeaderCell>

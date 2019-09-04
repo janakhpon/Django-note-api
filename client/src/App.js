@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import AddForm from './Components/Add';
 import ListForm from './Components/Notes';
-import {fetchNotes} from './Fetch';
+import {getNotes} from './Fetch';
 import 'semantic-ui-css/semantic.min.css'
 import './App.css';
 
@@ -24,8 +24,9 @@ export default class App extends Component {
 
 
     async getData() {
-      let data = await fetchNotes();
+      let data = await getNotes();
       this.setState({notes: data, is_fetching: false});
+      console.log(this.state.notes)
     }
 
     async handleItemClick(id) {
@@ -48,6 +49,8 @@ export default class App extends Component {
 
 
   componentDidMount(){
+    this.getData();
+    console.log(this.state.notes);
 
   }
 
