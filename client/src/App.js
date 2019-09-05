@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import AddForm from './Components/Add';
 import ListForm from './Components/Notes';
-import {getNotes, addNote} from './Fetch';
+import {getNotes, addNote, updateNote} from './Fetch';
 import 'semantic-ui-css/semantic.min.css'
 import './App.css';
 
@@ -39,6 +39,12 @@ export default class App extends Component {
     }
 
 
+    async handleUpdateNote(note,id){
+      await updateNote(note,id);
+      await this.getData();
+    }
+
+
 
     handleData(data) {
 
@@ -61,7 +67,7 @@ export default class App extends Component {
       <React.Fragment>
         <AddForm handleSave={this.handleAddNote} />
 
-        <ListForm notes={this.state.notes}/>
+        <ListForm notes={this.state.notes} handlePut={this.handleUpdateNote}/>
       </React.Fragment>
     );
   }
